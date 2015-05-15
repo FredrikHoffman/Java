@@ -1,0 +1,63 @@
+import java.util.ArrayList;
+public class House {
+
+	private int houseNbr;
+	private String adress;
+	private double buyingPrice;
+	
+	ArrayList<Apartment> apartments = new ArrayList<Apartment>();
+	public int getHouseNbr(){
+		return houseNbr;
+	}
+	public void setHouseNbr(int newHouseNbr){
+		houseNbr = newHouseNbr;
+	}
+	public String getAdress(){
+		return adress;
+	}
+	public void setAdress(String newAdress){
+		adress = newAdress;
+	}
+	public double getBuyingPrice(){
+		return buyingPrice;
+	}
+	public void setBuyingPrice(double newBuyingPrice){
+		buyingPrice = newBuyingPrice;
+	}
+	public Apartment findApartment(int nbr){
+		for(Apartment a : this.apartments){
+			if(a.getNbr() == (nbr)){
+				return a;
+			}
+		}
+		return null;
+	}
+	public void addApartment(Apartment a){
+		apartments.add(a);
+	}
+	public double totalRentPerMonth(){
+		int månadshyrasumma = 0;
+		for(Apartment a : this.apartments){
+			månadshyrasumma += a.getRentPerMonth();
+			return månadshyrasumma;
+		}
+		return 0;
+	}
+	public int area(){
+		int totalarea = 0;
+		for(Apartment a : this.apartments){
+			totalarea += a.getArea();
+			return totalarea;
+		}
+		return 0;
+	}
+	
+	public void updateRentPerMonth(int apartmentNbr, double newRent){
+		for(Apartment a : this.apartments){
+			if(a.getNbr() == (apartmentNbr)){
+				a.setRentPerMonth(newRent);
+			}
+		}
+	}
+	
+}
