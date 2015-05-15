@@ -1,0 +1,32 @@
+public class Apartment {
+
+	private int nbr;
+	private double rentPerMonth;
+	private int area;
+	
+	
+	public int getNbr(){
+		return nbr;
+	}
+	public void setNbr(int newNbr){
+		nbr = newNbr;
+	}
+	public double getRentPerMonth(){
+		return rentPerMonth;
+	}
+	public void setRentPerMonth(double newRentPerMonth){
+		rentPerMonth = newRentPerMonth;
+	}
+	public int getArea(){
+		return area;
+	}
+	public void setArea(int newArea){
+		area = newArea;
+	}
+	public double rentPerSqrMeter(){
+		return this.rentPerMonth/this.area;
+	}
+	public double rentPerYear(){
+		return this.rentPerMonth * 12;
+	}
+}
